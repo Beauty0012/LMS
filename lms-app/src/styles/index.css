@@ -1,0 +1,101 @@
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.course-list-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(90deg, #28a745, #20c997); /* Green Gradient */
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Default Light Mode */
+.light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* src/styles/index.css */
+
+/* Styling for the Enrolled Students section */
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #007bff;
+  text-transform: uppercase;
+}
+
+.no-enrollment-msg {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Enrollment List */
+.enrollment-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.enrollment-item {
+  background-color: #f8f9fa;
+  padding: 12px 18px;
+  margin: 8px 0;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.enrollment-item:hover {
+  transform: scale(1.02);
+}
+
+/* Student Info */
+.student-info h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.course-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+ 
+
+/* src/styles/index.css */
+.timestamp {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+  display: block;
+}
