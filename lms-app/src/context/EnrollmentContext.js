@@ -3,14 +3,14 @@ import { createContext, useState } from "react";
 export const EnrollmentContext = createContext();
 
 export const EnrollmentProvider = ({ children }) => {
-  const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [enrolledStudents, setEnrolledStudents] = useState([]);
 
-  const enrollInCourse = (course) => {
-    setEnrolledCourses((prev) => [...prev, course]);
+  const enrollInCourse = (student) => {
+    setEnrolledStudents((prev) => [...prev, student]);
   };
 
   return (
-    <EnrollmentContext.Provider value={{ enrolledCourses, enrollInCourse }}>
+    <EnrollmentContext.Provider value={{ enrolledStudents, enrollInCourse }}>
       {children}
     </EnrollmentContext.Provider>
   );

@@ -6,20 +6,30 @@ const CourseList = ({ enrolledStudents }) => {
   return (
     <div className="course-list">
       <h2 className="section-title">📋 Enrolled Students</h2>
+
       {enrolledStudents.length === 0 ? (
         <p className="no-enrollment-msg">No students enrolled yet.</p>
       ) : (
-        <ul className="enrollment-list">
-          {enrolledStudents.map((student, index) => (
-            <li key={index} className="enrollment-item">
-              <div className="student-info">
-                <h3>{student.studentName}</h3>
-                <p className="course-name">📖 {student.course}</p>
-                <p className="timestamp">⏰ Enrolled at: {student.timestamp}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <table className="enrollment-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Course</th>
+              <th>Enrolled At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {enrolledStudents.map((student, index) => (
+              <tr key={index} className="enrollment-row">
+                <td>{index + 1}</td>
+                <td className="student-name">{student.studentName}</td>
+                <td className="course-name">{student.course}</td>
+                <td className="timestamp">{student.timestamp}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

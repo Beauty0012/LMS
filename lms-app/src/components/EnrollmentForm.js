@@ -1,15 +1,16 @@
 // src/components/EnrollmentForm.js
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { EnrollmentContext } from "../context/EnrollmentContext";
 import "../styles/Forms.css";
 
-const EnrollmentForm = ({ onEnroll }) => {
+const EnrollmentForm = () => {
   const [studentName, setStudentName] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("");
+  const { enrollInCourse } = useContext(EnrollmentContext); // ✅ Get function from context
 
   const courses = [
     "React.js Fundamentals",
     "Advanced JavaScript",
-    "Python for Beginners",
     "Data Structures & Algorithms",
     "Full-Stack Development",
     "Cybersecurity Basics",
@@ -17,15 +18,27 @@ const EnrollmentForm = ({ onEnroll }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const trimmedName = studentName.trim(); // Trim spaces
+
+    if (!trimmedName) {
+      alert("Student name cannot be empty!");
+      return;
+    }
+
     if (!selectedCourse) {
       alert("Please select a course!");
       return;
     }
 
-    // Get current timestamp
-    const timestamp = new Date().toLocaleString(); 
+    enrollInCourse({
+      studentName: trimmedName,
+      course: selectedCourse,
+      timestamp: new Date().toLocaleString(),
+    });
 
-    onEnroll({ studentName, course: selectedCourse, timestamp });
+    alert(`✅ ${trimmedName} successfully enrolled in ${selectedCourse}!`);
+
     setStudentName("");
     setSelectedCourse("");
   };
@@ -59,7 +72,9 @@ const EnrollmentForm = ({ onEnroll }) => {
             ))}
           </select>
 
-          <button type="submit" className="submit-btn">Enroll</button>
+          <button type="submit" className="submit-btn">
+            Enroll
+          </button>
         </form>
       </div>
     </div>

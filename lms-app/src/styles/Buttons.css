@@ -1,34 +1,18 @@
-/* Button Styles */
-.btn {
-    display: inline-block;
-    background-color: #3b82f6;
+.view-enrolled-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
     color: white;
-    padding: 12px 18px;
-    border-radius: 6px;
-    text-align: center;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
   }
   
-  .btn:hover {
-    background-color: #2563eb;
-  }
-  
-  .btn-danger {
-    background-color: #ef4444;
-  }
-  
-  .btn-danger:hover {
-    background-color: #dc2626;
-  }
-  
-  .btn-secondary {
-    background-color: #6b7280;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #4b5563;
+  .view-enrolled-btn:hover {
+    background-color: #0056b3;
   }
   

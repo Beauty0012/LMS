@@ -1,13 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import EnrollmentForm from "../components/EnrollmentForm";
-import EnrollmentList from "../components/EnrollmentList";
 import "../styles/EnrollmentPage.css";
 
-const EnrollmentPage = ({ onEnroll }) => {
+const EnrollmentPage = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="enrollment-page">
-      <EnrollmentForm onEnroll={onEnroll} />
-      <EnrollmentList />
+    <div className="page-container">
+      <h1 className="dashboard-title">🎓 Student Enrollment Dashboard</h1>
+      <button className="view-enrollments-btn" onClick={() => navigate("/enrolled-students")}>
+        📋 View Enrolled Students
+      </button>
+      <EnrollmentForm />
     </div>
   );
 };

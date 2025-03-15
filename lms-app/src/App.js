@@ -1,22 +1,22 @@
-// src/App.js
-import React, { useState } from "react";
-import EnrollmentForm from "./components/EnrollmentForm";
-import CourseList from "./components/CourseList";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { EnrollmentProvider } from "./context/EnrollmentContext";
+import EnrollmentPage from "./pages/EnrollmentPage";
+import EnrollmentListPage from "./pages/EnrollmentListPage";
 import "./styles/index.css";
 
 const App = () => {
-  const [enrolledStudents, setEnrolledStudents] = useState([]);
-
-  const handleEnroll = (student) => {
-    setEnrolledStudents([...enrolledStudents, student]);
-  };
-
   return (
-    <div className="app-container">
-      <h1 className="dashboard-title">Student Enrollment Dashboard</h1>
-      <EnrollmentForm onEnroll={handleEnroll} />
-      <CourseList enrolledStudents={enrolledStudents} />
-    </div>
+    <EnrollmentProvider>
+      <Router>
+        <div className="app-container">
+          <Routes>
+            <Route path="/" element={<EnrollmentPage />} />
+            <Route path="/enrolled-students" element={<EnrollmentListPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </EnrollmentProvider>
   );
 };
 
