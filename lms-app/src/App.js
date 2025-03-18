@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Lessons from "./pages/Lessons";
+import LessonForm from "./components/LessonForm"; // Import LessonForm
 
-function App() {
+import "./App.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/lessons">Lessons</Link></li>
+            <li><Link to="/add-lesson">Add Lesson</Link></li>  {/* Link to add lesson */}
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/lessons" element={<Lessons />} />
+          <Route path="/add-lesson" element={<LessonForm />} /> {/* Route for adding lessons */}
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
